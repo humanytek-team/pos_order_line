@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="pos_order_line_view_tree" model="ir.ui.view">
+    <field name="name">pos.order.line.view.tree</field>
+    <field name="model">pos.order.line</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="order_name"/>
+        <field name="order_session_id"/>
+        <field name="order_partner_id"/>
+        <field name="order_date_order"/>
+        <field name="order_user_id"/>
+        <field name="order_fiscal_position_id"/>
+        <field name="full_product_name"/>
+        <field name="pack_lot_ids" widget="many2many_tags" groups="stock.group_production_lot"/>
+        <field name="qty"/>
+        <field name="customer_note" optional="hide"/>
+        <field name="product_uom_id" string="UoM" groups="uom.group_uom"/>
+        <field name="price_unit" widget="monetary"/>
+        <field name="is_total_cost_computed" invisible="1"/>
+        <field name="total_cost" attrs="{'invisible': [('is_total_cost_computed','=', False)]}" optional="hide" widget="monetary"/>
+        <field name="margin" attrs="{'invisible': [('is_total_cost_computed','=', False)]}" optional="hide" widget="monetary"/>
+        <field name="margin_percent" attrs="{'invisible': [('is_total_cost_computed','=', False)]}" optional="hide" widget="percentage"/>
+        <field name="discount" string="Disc.%"/>
+        <field name="tax_ids_after_fiscal_position" widget="many2many_tags" string="Taxes"/>
+        <field name="tax_ids" widget="many2many_tags" invisible="1"/>
+        <field name="price_subtotal" widget="monetary" force_save="1"/>
+        <field name="price_subtotal_incl" widget="monetary" force_save="1"/>
+        <field name="currency_id" invisible="1"/>
+        <field name="refunded_qty" optional="hide"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="pos_order_line_action" model="ir.actions.act_window">
+    <field name="name">PoS Order Line</field>
+    <field name="res_model">pos.order.line</field>
+    <field name="view_mode">tree</field>
+    <field name="view_id" ref="pos_order_line_view_tree"/>
+  </record>
+
+  <menuitem id="pos_order_line_menu" name="Order Lines" parent="point_of_sale.menu_point_of_sale" action="pos_order_line_action"/>
+</odoo>
