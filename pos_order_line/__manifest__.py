@@ -8,6 +8,7 @@
     ],
     "data": [
         # security
+        "security/pos_order_line.xml",
         # data
         # reports
         # views
