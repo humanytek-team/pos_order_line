@@ -1,6 +1,6 @@
 {
     "name": "PoS Order Line Tree View",
-    "version": "13.0.0.1.0",
+    "version": "17.0.1.0.0",
     "author": "Humanytek",
     "license": "LGPL-3",
     "depends": [
