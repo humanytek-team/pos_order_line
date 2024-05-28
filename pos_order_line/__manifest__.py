@@ -12,6 +12,6 @@
         # data
         # reports
         # views
-        "views/pos_order_line.xml",
+       # "views/pos_order_line.xml",
     ],
 }
