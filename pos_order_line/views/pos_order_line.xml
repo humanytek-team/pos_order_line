@@ -5,13 +5,21 @@
     <field name="model">pos.order.line</field>
     <field name="arch" type="xml">
       <tree>
+        <field name="product_id" readonly="1"/>
+        <field name="qty" readonly="1" sum="Total qty"/>
+        <field name="discount" readonly="1"/>
+        <field name="price_unit" readonly="1" widget="monetary"/>
+        <field name="price_subtotal" readonly="1" sum="Sum of subtotals" widget="monetary"/>
+        <field name="price_subtotal_incl" readonly="1" sum="Sum of subtotals" widget="monetary"/>
+        <field name="create_date" readonly="1"/>
+        <field name="currency_id" column_invisible="True"/>
         <field name="order_name"/>
         <field name="order_session_id"/>
         <field name="order_partner_id"/>
         <field name="order_date_order"/>
         <field name="order_user_id"/>
         <field name="order_fiscal_position_id"/>
-        <field name="full_product_name"/>
+        <!--field name="full_product_name"/>
         <field name="pack_lot_ids" widget="many2many_tags" groups="stock.group_production_lot"/>
         <field name="qty"/>
         <field name="customer_note" optional="hide"/>
@@ -27,7 +35,7 @@
         <field name="price_subtotal" widget="monetary" force_save="1"/>
         <field name="price_subtotal_incl" widget="monetary" force_save="1"/>
         <field name="currency_id" modifiers="{'invisible': true}"/>
-        <field name="refunded_qty" optional="hide"/>
+        <field name="refunded_qty" optional="hide"/-->
       </tree>
     </field>
   </record>
