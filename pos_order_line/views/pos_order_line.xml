@@ -17,16 +17,16 @@
         <field name="customer_note" optional="hide"/>
         <field name="product_uom_id" string="UoM" groups="uom.group_uom"/>
         <field name="price_unit" widget="monetary"/>
-        <field name="is_total_cost_computed" invisible="1"/>
+        <field name="is_total_cost_computed" modifiers="{'invisible': true}"/>
         <field name="total_cost" modifiers="{'invisible': [('is_total_cost_computed','=', False)]}" optional="hide" widget="monetary"/>
         <field name="margin" modifiers="{'invisible': [('is_total_cost_computed','=', False)]}" optional="hide" widget="monetary"/>
         <field name="margin_percent" modifiers="{'invisible': [('is_total_cost_computed','=', False)]}" optional="hide" widget="percentage"/>
         <field name="discount" string="Disc.%"/>
         <field name="tax_ids_after_fiscal_position" widget="many2many_tags" string="Taxes"/>
-        <field name="tax_ids" widget="many2many_tags" invisible="1"/>
+        <field name="tax_ids" widget="many2many_tags" modifiers="{'invisible': true}"/>
         <field name="price_subtotal" widget="monetary" force_save="1"/>
         <field name="price_subtotal_incl" widget="monetary" force_save="1"/>
-        <field name="currency_id" invisible="1"/>
+        <field name="currency_id" modifiers="{'invisible': true}"/>
         <field name="refunded_qty" optional="hide"/>
       </tree>
     </field>
@@ -41,3 +41,4 @@
 
   <menuitem id="pos_order_line_menu" name="Order Lines" parent="point_of_sale.menu_point_of_sale" action="pos_order_line_action"/>
 </odoo>
+
