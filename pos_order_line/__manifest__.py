@@ -7,11 +7,7 @@
         "point_of_sale",
     ],
     "data": [
-        # security
         "security/pos_order_line.xml",
-        # data
-        # reports
-        # views
-       # "views/pos_order_line.xml",
+        "views/pos_order_line.xml",
     ],
 }
